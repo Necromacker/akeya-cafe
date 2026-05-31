@@ -1,0 +1,181 @@
+/* about.css */
+
+.split-sections-container {
+    width: 100%;
+}
+
+.split-section {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 100vh;
+    width: 100%;
+    padding: 70px 0 0;
+    /* 70px for navbar, full width */
+    box-sizing: border-box;
+    overflow: hidden;
+    position: relative;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.split-section:not(:first-child) {
+    padding: 0;
+}
+
+/* Light Mode Backgrounds & Colors */
+/* 1st, 3rd sections: White */
+.split-section:nth-child(odd) {
+    background-color: #ffffff;
+    color: #1a1a1a;
+}
+
+/* 2nd, 4th sections: Dark Charcoal */
+.split-section:nth-child(even) {
+    background-color: #1c1c1c;
+    color: #ffffff;
+}
+
+/* Dark Mode Backgrounds & Colors (Flips the colors) */
+/* 1st, 3rd sections: Dark Charcoal */
+body.dark-theme .split-section:nth-child(odd) {
+    background-color: #1a1a1a;
+    color: #ffffff;
+}
+
+/* 2nd, 4th sections: White */
+body.dark-theme .split-section:nth-child(even) {
+    background-color: #ffffff;
+    color: #1a1a1a;
+}
+
+.split-image {
+    flex: 1.2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    position: relative;
+}
+
+.split-image img {
+    max-width: 85%;
+    max-height: 85vh;
+    object-fit: contain;
+    transition: filter 0.3s ease;
+}
+
+/* Image Display Logic for Light/Dark themes */
+
+/* Light Mode (default) */
+.split-image .img-light {
+    display: block;
+
+}
+
+.split-image .img-dark {
+    display: none;
+}
+
+/* Dark Mode */
+body.dark-theme .split-image .img-light {
+    display: none;
+}
+
+body.dark-theme .split-image .img-dark {
+    display: block;
+
+}
+
+/* Invert sketches that are naturally black-on-white to white-on-dark */
+.img-invert {
+    filter: invert(1) brightness(1) contrast(1);
+}
+
+
+
+.split-content {
+    flex: 0.8;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 0 10% 0 5%;
+    position: relative;
+    z-index: 10;
+}
+
+.split-sections-container .split-section:nth-child(even) .split-content {
+    padding: 0 5% 0 10%;
+}
+
+.split-content h2 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.8rem;
+    font-weight: 800;
+    letter-spacing: 0.15em;
+    margin-bottom: 1.5rem;
+    text-transform: uppercase;
+}
+
+.split-content p {
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 0.9rem;
+    line-height: 1.8;
+    margin-bottom: 2.5rem;
+    max-width: 400px;
+    color: inherit;
+    opacity: 0.8;
+}
+
+.outline-btn {
+    display: inline-block;
+    padding: 14px 34px;
+    border: 2px solid currentColor;
+    color: inherit;
+    text-decoration: none;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    transition: all 0.3s ease;
+}
+
+.outline-btn:hover {
+    color: #ffffff;
+    background-color: #1a1a1a;
+}
+
+body.dark-theme .outline-btn:hover {
+    color: #1a1a1a;
+    background-color: #ffffff;
+}
+
+/* Responsive adjustments */
+@media (max-width: 1000px) {
+    .split-section {
+        flex-direction: column !important;
+        height: auto;
+        min-height: 100vh;
+        padding: 100px 5% 4rem !important;
+        justify-content: center;
+    }
+
+    .split-content p {
+        padding: 0rem 3rem;
+    }
+
+    .split-content {
+        order: 1;
+        margin-bottom: 2rem;
+        align-items: center;
+        text-align: center;
+        padding: 0 !important;
+    }
+
+    .split-image {
+        order: 2;
+
+        width: 110%;
+    }
+}

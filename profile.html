@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aeka's Coffee</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/profile.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Ovo&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+
+<body>
+    <div class="Nav-container">
+        <div class="Navbar">
+            <div class="Branding">
+                <img src="/images/logo.avif" alt="Aeka's Coffee logo" class="Brand-logo" />
+                <h1>Aeka's Coffee</h1>
+            </div>
+            <div class="Nav-links">
+        <a href="index.html" id="buttons"><span class="text">Home</span><span>Home</span></a>
+        <a href="shop.html" id="buttons"><span class="text">Menu</span><span>Menu</span></a>
+        <a href="about.html" id="buttons"><span class="text">About</span><span>About</span></a>
+        <a href="blog.html" id="buttons"><span class="text">Blog</span><span>Blog</span></a>
+      </div>
+
+            <div class="Nav-buttons">
+                <div class="nav-actions desktop-nav">
+                    <button class="nav-btn theme-toggle cursor-target light-mode" id="theme-toggle"
+                        aria-label="Toggle theme">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                            data-lucide="moon" class="lucide lucide-moon theme-icon moon-icon">
+                            <path
+                                d="M20.985 12.486a9 9 0 1 1-9.473-9.472c.405-.022.617.46.402.803a6 6 0 0 0 8.268 8.268c.344-.215.825-.004.803.401">
+                            </path>
+                        </svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                            data-lucide="sun" class="lucide lucide-sun theme-icon sun-icon">
+                            <circle cx="12" cy="12" r="4"></circle>
+                            <path d="M12 2v2"></path>
+                            <path d="M12 20v2"></path>
+                            <path d="m4.93 4.93 1.41 1.41"></path>
+                            <path d="m17.66 17.66 1.41 1.41"></path>
+                            <path d="M2 12h2"></path>
+                            <path d="M20 12h2"></path>
+                            <path d="m6.34 17.66-1.41 1.41"></path>
+                            <path d="m19.07 4.93-1.41 1.41"></path>
+                        </svg>
+                    </button>
+                    <a href="profile.html" class="nav-btn cursor-target" aria-label="User account">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                            data-lucide="user" class="lucide lucide-user">
+                            <path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"></path>
+                            <circle cx="12" cy="7" r="4"></circle>
+                        </svg>
+                    </a>
+                    <button class="nav-btn cursor-target" aria-label="Shopping cart" id="cart-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                            data-lucide="shopping-bag" class="lucide lucide-shopping-bag">
+                            <path d="M16 10a4 4 0 0 1-8 0"></path>
+                            <path d="M3.103 6.034h17.794"></path>
+                            <path
+                                d="M3.4 5.467a2 2 0 0 0-.4 1.2V20a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6.667a2 2 0 0 0-.4-1.2l-2-2.667A2 2 0 0 0 17 2H7a2 2 0 0 0-1.6.8z">
+                            </path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="MobileMenu">
+            Menu
+            <input id="checkbox2" type="checkbox" />
+            <label class="toggle toggle2" for="checkbox2">
+                <div id="bar4" class="bars"></div>
+                <div id="bar5" class="bars"></div>
+                <div id="bar6" class="bars"></div>
+            </label>
+        </div>
+    </div>
+
+    <div class="profile-container">
+        <aside class="profile-sidebar">
+            <div class="user-info-brief">
+                <div class="profile-avatar">
+                    <i class="fas fa-user-circle"></i>
+                </div>
+                <h3 id="user-name">Loading...</h3>
+                <p id="user-email">...</p>
+            </div>
+            <nav class="profile-nav">
+                <button class="nav-item active" data-tab="profile">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-user"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg> Profile Details
+                </button>
+                <button class="nav-item" data-tab="cart">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-shopping-cart"><circle cx="8" cy="21" r="1"/><circle cx="19" cy="21" r="1"/><path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"/></svg> My Cart
+                </button>
+                <button class="nav-item" data-tab="orders">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-package"><path d="M16.5 9.4 7.55 4.24"/><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.29 7 12 12 20.71 7"/><line x1="12" y1="22" x2="12" y2="12"/></svg> My Orders
+                </button>
+                <button class="nav-item" data-tab="addresses">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-map-pin"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"/><circle cx="12" cy="10" r="3"/></svg> My Addresses
+                </button>
+                <button class="nav-item logout-btn" id="logout-btn">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-log-out"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg> Logout
+                </button>
+            </nav>
+        </aside>
+
+        <main class="profile-content">
+            <!-- Profile Details Tab -->
+            <section id="profile" class="tab-content active">
+                <h2>Profile Details</h2>
+                <form id="profile-form" class="premium-form">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>First Name</label>
+                            <input type="text" id="firstName" name="firstName" placeholder="First Name">
+                        </div>
+                        <div class="form-group">
+                            <label>Last Name</label>
+                            <input type="text" id="lastName" name="lastName" placeholder="Last Name">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>Email Address</label>
+                        <input type="email" id="email" disabled>
+                    </div>
+                    <div class="form-group">
+                        <label>Contact Number</label>
+                        <input type="tel" id="contact" name="contact" placeholder="Phone Number">
+                    </div>
+                    <button type="submit" class="btn-premium">Update Profile</button>
+                </form>
+            </section>
+
+            <!-- My Cart Tab -->
+            <section id="cart" class="tab-content">
+                <h2>My Cart</h2>
+                <div id="cart-items" class="cart-list">
+                    <!-- Dynamic Cart Items -->
+                </div>
+                <div class="cart-summary">
+                    <div class="total-bar">
+                        <span>Total Amount:</span>
+                        <span id="cart-total">₹0.00</span>
+                    </div>
+                    <button class="btn-premium" id="checkout-btn">Proceed to Buy Now</button>
+                </div>
+            </section>
+
+            <!-- My Orders Tab -->
+            <section id="orders" class="tab-content">
+                <h2>My Orders</h2>
+                <div id="orders-list" class="orders-list">
+                    <!-- Dynamic Orders -->
+                </div>
+            </section>
+
+            <!-- My Addresses Tab -->
+            <section id="addresses" class="tab-content">
+                <div class="section-header">
+                    <h2>My Addresses</h2>
+                    <button class="btn-premium-outline" id="add-address-btn">+ Add New Address</button>
+                </div>
+                <div id="addresses-list" class="address-grid">
+                    <!-- Dynamic Addresses -->
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- Modal for adding address -->
+    <div id="address-modal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h3>Add New Address</h3>
+            <form id="address-form" class="premium-form">
+                <div class="form-group">
+                    <label>Street Address</label>
+                    <input type="text" name="street" required>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>City</label>
+                        <input type="text" name="city" required>
+                    </div>
+                    <div class="form-group">
+                        <label>State</label>
+                        <input type="text" name="state" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>Zip Code</label>
+                    <input type="text" name="zipCode" required>
+                </div>
+                <button type="submit" class="btn-premium">Save Address</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Animation Scripts (Required by script.js) -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+
+    <!-- Razorpay Script -->
+    <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+    <!-- Firebase Scripts -->
+    <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-auth-compat.js"></script>
+    <script type="module" src="/js/script.js"></script>
+    <script type="module" src="/js/cart.js"></script>
+    <script type="module" src="/js/profile.js"></script>
+</body>
+
+</html>

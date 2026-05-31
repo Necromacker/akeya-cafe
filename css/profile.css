@@ -1,0 +1,612 @@
+/* ============================================================
+   PROFILE PAGE — Aeka's Coffee
+   Aligned with Login/Signup Design System
+   ============================================================ */
+
+/* ── Design tokens ── */
+:root {
+    --auth-darkBlue: #217093;
+    --auth-medBlue: #4eb8dd;
+    --auth-lightBlue: #ddf1fa;
+    --auth-inputBG: #f3fafd;
+
+    /* Brand palette shared with landing page */
+    --accent-color: var(--text-primary);
+    --brand-cream: #fdf6ec;
+    --brand-warm: #c9a97a;
+    --brand-deep: #5a3e28;
+    --brand-accent: #e07b39;
+    --brand-text: var(--text-primary);
+
+    /* Transitions */
+    --ease-out: cubic-bezier(0.48, 0, 0.12, 1);
+    --shadow: 0 8px 40px rgba(0, 0, 0, 0.08);
+
+    /* Dark mode overrides (to be used when body has .dark-theme) */
+    --dark-bg: #1a1a1a;
+    --dark-card: #252525;
+    --dark-border: #333;
+    --dark-text: #ffffff;
+    --dark-input: #1e1e1e;
+}
+
+/* ── Reset and Page shell ── */
+body {
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    background: var(--bg-primary);
+    font-family: 'Poppins', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    color: var(--text-primary);
+    overflow-x: hidden;
+    /* Remove transition for background to fix the landing page lag */
+    transition: color 0.3s ease;
+}
+
+body.dark-theme {
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+}
+
+/* Simple background (plain) */
+.profile-container {
+    max-width: 1100px;
+    margin: 70px auto 60px; /* Reduced from 110px to sit right against navbar */
+    display: flex;
+    gap: 32px;
+    padding: 40px 20px;
+    position: relative;
+    z-index: 10;
+}
+
+/* ── Sidebar ── */
+.profile-sidebar {
+    flex: 0 0 280px;
+    background: #fff;
+    border-radius: 16px;
+    border: 1px solid rgba(221, 221, 221, 0.6);
+    box-shadow: var(--shadow);
+    padding: 28px 20px;
+    height: fit-content;
+    backdrop-filter: blur(10px);
+    transition: background 0.3s ease, border-color 0.3s ease;
+}
+
+body.dark-theme .profile-sidebar {
+    background: var(--dark-card);
+    border-color: var(--dark-border);
+}
+
+.user-info-brief {
+    text-align: center;
+    margin-bottom: 28px;
+    padding-bottom: 24px;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.profile-avatar {
+    font-size: 56px;
+    color: var(--auth-medBlue);
+    margin-bottom: 12px;
+    filter: drop-shadow(0 4px 8px rgba(78, 184, 221, 0.2));
+}
+
+.user-info-brief h3 {
+    font-weight: 700;
+    font-size: 1.15rem;
+    color: var(--brand-deep);
+    margin: 0 0 4px;
+}
+
+.user-info-brief p {
+    font-size: 0.82rem;
+    color: #888;
+    margin: 0;
+}
+
+body.dark-theme .user-info-brief h3 {
+    color: var(--dark-text);
+}
+
+.profile-nav {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.nav-item {
+    background: transparent;
+    border: none;
+    text-align: left;
+    padding: 12px 16px;
+    border-radius: 10px;
+    cursor: pointer;
+    font-family: inherit;
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: #666;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    transition: all 0.3s var(--ease-out);
+    width: 100%;
+}
+
+.nav-item svg {
+    width: 18px;
+    height: 18px;
+    stroke: currentColor;
+    stroke-width: 2px;
+}
+
+.nav-item:hover:not(.active) {
+    background: var(--auth-inputBG);
+    color: var(--auth-darkBlue);
+}
+
+.nav-item.active {
+    background: var(--auth-darkBlue);
+    color: #fff;
+    box-shadow: 0 4px 12px rgba(33, 112, 147, 0.25);
+}
+
+.logout-btn {
+    margin-top: 18px;
+    color: #cc3333;
+}
+
+.logout-btn:hover {
+    background: #fffafa;
+}
+
+body.dark-theme .nav-item {
+    color: #999;
+}
+
+body.dark-theme .nav-item:hover:not(.active) {
+    background: #2a2a2a;
+    color: #fff;
+}
+
+/* ── Main Content Area ── */
+.profile-content {
+    flex: 1;
+    background: var(--bg-primary);
+    border-radius: 20px;
+    border: 1px solid var(--border-color);
+    box-shadow: var(--shadow);
+    padding: 40px;
+    min-height: 540px;
+    transition: background 0.3s var(--ease-out), border-color 0.3s var(--ease-out);
+}
+
+body.dark-theme .profile-content {
+    background: var(--dark-card);
+    border-color: var(--dark-border);
+}
+
+.section-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 44px;
+    text-align: center;
+}
+
+.section-header h2 {
+    margin-bottom: 0;
+}
+
+h2 {
+    font-weight: 800;
+    font-size: 2.2rem;
+    margin-bottom: 32px;
+    color: var(--text-primary);
+    letter-spacing: -0.01em;
+}
+
+body.dark-theme h2 {
+    color: var(--text-primary);
+}
+
+.tab-content {
+    display: none;
+    animation: fadeIn 0.4s var(--ease-out);
+}
+
+.tab-content.active {
+    display: block;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(12px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* ── Unified Form Styling ── */
+.premium-form {
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
+}
+
+.form-row {
+    display: flex;
+    gap: 20px;
+}
+
+.form-group {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.form-group label {
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: var(--auth-darkBlue);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.form-group input {
+    height: 44px;
+    padding: 0 16px;
+    background-color: var(--auth-inputBG);
+    border: solid 2px var(--auth-darkBlue);
+    border-radius: 8px;
+    font-family: inherit;
+    font-size: 0.92rem;
+    font-weight: 500;
+    color: #353538;
+    outline: none;
+    transition: all 0.25s var(--ease-out);
+}
+
+body.dark-theme .form-group input {
+    background-color: var(--dark-input);
+    border-color: #444;
+    color: #eee;
+}
+
+body.dark-theme .form-group input:focus {
+    border-color: var(--auth-medBlue);
+}
+
+.form-group input:focus {
+    border-color: var(--auth-medBlue);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+.form-group input:disabled {
+    background-color: #f0f0f0;
+    border-color: #ddd;
+    color: #888;
+    cursor: not-allowed;
+}
+
+/* ── Button Styles ── */
+/* ── Button Styles matching Website (Inspired by #buttons) ── */
+.btn-premium {
+  font-weight: 500;
+  position: relative;
+  overflow: hidden;
+  border: 1px solid var(--text-primary);
+  border-radius: 0.3rem;
+  color: var(--bg-primary);
+  background: var(--text-primary);
+  display: inline-block;
+  font-size: 0.9rem;
+  font-family: Poppins;
+  padding: 0.8rem 2.4rem;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.4s var(--ease-out);
+  width: fit-content;
+  z-index: 1;
+}
+
+.btn-premium:hover {
+  background: transparent;
+  color: var(--text-primary);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+}
+
+/* Pseudo-element for the website-style slide effect */
+.btn-premium::after {
+  content: "";
+  position: absolute;
+  bottom: -50%;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: var(--text-primary);
+  transform-origin: bottom center;
+  transition: transform 600ms cubic-bezier(0.48, 0, 0.12, 1);
+  transform: skewY(9.3deg) scaleY(0);
+  z-index: -1;
+}
+
+.btn-premium:hover::after {
+  transform-origin: bottom center;
+  transform: skewY(9.3deg) scaleY(2.2);
+}
+
+body.dark-theme .btn-premium {
+  color: var(--bg-primary);
+  background: var(--text-primary);
+  border-color: var(--text-primary);
+}
+
+body.dark-theme .btn-premium:hover {
+  background: transparent;
+  color: var(--text-primary);
+}
+
+.btn-premium-outline {
+  font-weight: 600;
+  background: transparent;
+  border: 2px solid var(--text-primary);
+  color: var(--text-primary);
+  padding: 11px 24px;
+  border-radius: 8px;
+  font-family: inherit;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: all 0.3s var(--ease-out);
+}
+
+.btn-premium-outline:hover {
+  background: var(--text-primary);
+  color: var(--bg-primary);
+}
+
+/* ── Address Grid ── */
+.address-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
+    gap: 22px;
+}
+
+.address-card {
+    background: #fff;
+    border: 1px solid #eee;
+    border-radius: 12px;
+    padding: 24px;
+    position: relative;
+    transition: all 0.3s var(--ease-out);
+}
+
+body.dark-theme .address-card {
+    background: #252525;
+    border-color: #333;
+}
+
+.address-card:hover {
+    border-color: var(--auth-medBlue);
+    box-shadow: 0 8px 24px rgba(78, 184, 221, 0.1);
+    transform: translateY(-4px);
+}
+
+.address-card p {
+    font-size: 0.88rem;
+    line-height: 1.6;
+    margin: 4px 0;
+    color: #555;
+}
+
+body.dark-theme .address-card p {
+    color: #bbb;
+}
+
+.address-actions {
+    margin-top: 18px;
+    display: flex;
+    gap: 16px;
+    border-top: 1px solid #f9f9f9;
+    padding-top: 14px;
+}
+
+.btn-delete {
+    color: #cc3333;
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 0.8rem;
+    font-weight: 600;
+    font-family: inherit;
+}
+
+.btn-delete:hover {
+    text-decoration: underline;
+}
+
+/* ── Cart Items ── */
+.cart-item {
+    display: flex;
+    align-items: center;
+    padding: 18px 0;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.item-img {
+    width: 76px;
+    height: 76px;
+    object-fit: cover;
+    border-radius: 10px;
+    margin-right: 20px;
+    border: 1px solid #eee;
+}
+
+.item-details h4 {
+    font-size: 1.05rem;
+    font-weight: 600;
+    margin: 0 0 4px;
+    color: var(--brand-deep);
+}
+
+body.dark-theme .item-details h4 {
+    color: var(--auth-lightBlue);
+}
+
+.item-details p, .cart-item-qty {
+    font-size: 0.85rem;
+    color: #666;
+    margin: 0 0 4px 0;
+}
+
+body.dark-theme .item-details p, 
+body.dark-theme .cart-item-qty {
+    color: #bbb;
+}
+
+.cart-item-name {
+    margin: 0 0 8px 0;
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: var(--auth-darkBlue);
+    text-decoration: none;
+    display: block;
+}
+
+body.dark-theme .cart-item-name {
+    color: var(--auth-medBlue);
+}
+
+.cart-item-price {
+    color: #b12704;
+    font-weight: 700;
+    font-size: 1rem;
+}
+
+body.dark-theme .cart-item-price {
+    color: #ff9900;
+}
+
+.order-item {
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
+    margin-bottom: 20px;
+    padding: 15px;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.contact-seller-btn {
+    padding: 6px 14px !important;
+    font-size: 12px !important;
+    white-space: nowrap;
+}
+
+.order-card {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    margin-bottom: 24px;
+    overflow: hidden;
+    background: #fff;
+    transition: all 0.3s ease;
+}
+
+body.dark-theme .order-card {
+    border-color: #333;
+    background: #1e1e1e;
+}
+
+.order-status-header {
+    font-size: 18px;
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+
+body.dark-theme .order-status-header {
+    color: var(--auth-medBlue);
+}
+
+.cart-summary {
+    background: var(--brand-cream);
+    padding: 24px;
+    border-radius: 14px;
+    border: 1px solid rgba(201, 169, 122, 0.2);
+    text-align: right;
+    margin-top: 30px;
+}
+
+body.dark-theme .cart-summary {
+    background: #252525;
+    border-color: #444;
+}
+
+.total-bar {
+    font-size: 1.25rem;
+    font-weight: 800;
+    color: var(--brand-deep);
+    margin-bottom: 20px;
+}
+
+body.dark-theme .total-bar {
+    color: #fff;
+}
+
+/* ── Modal (Glass Effect) ── */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 2000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(90, 62, 40, 0.25);
+    backdrop-filter: blur(6px);
+}
+
+.modal-content {
+    background: #fff;
+    margin: 8% auto;
+    padding: 36px;
+    border-radius: 16px;
+    width: 100%;
+    max-width: 480px;
+    position: relative;
+    box-shadow: 0 24px 60px rgba(0, 0, 0, 0.2);
+    border: 1px solid #ddd;
+}
+
+body.dark-theme .modal-content {
+    background: var(--dark-card);
+    border-color: var(--dark-border);
+}
+
+.close {
+    position: absolute;
+    right: 24px;
+    top: 24px;
+    font-size: 20px;
+    color: #999;
+    cursor: pointer;
+    transition: color 0.2s;
+}
+
+.close:hover {
+    color: var(--brand-deep);
+}
+
+/* ── Responsive ── */
+@media (max-width: 900px) {
+    .profile-container {
+        flex-direction: column;
+        margin-top: 90px;
+    }
+    .profile-sidebar {
+        flex: none;
+        width: 100%;
+    }
+    .form-row {
+        flex-direction: column;
+        gap: 0;
+    }
+}

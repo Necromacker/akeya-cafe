@@ -1,0 +1,948 @@
+:root {
+  --bg-dark: #2c4a52;
+  --bg-darker: #1e333a;
+  --bg-pink: #f5b8c1;
+  --bg-peach: #f6a88f;
+  --text-dark: #1a1a1a;
+  --text-light: #ffffff;
+  --accent-blue: #2c3e50;
+  --body-bg: #4a2b36;
+
+  /* Block Colors (Light/Default) */
+  --block-1: #fdabab;
+  /* Coffee */
+  --block-2: #ce8676;
+  /* Tan */
+  --block-3: #ffe6e5;
+  /* Cocoa */
+  --block-4: #fcc9c9;
+  /* Cream */
+}
+
+body.dark-theme {
+  --body-bg: #121212;
+  --text-dark: #ffffff;
+  --accent-blue: #e0e0e0;
+
+  /* Block Colors (Dark) */
+  --block-1: #FD7979;
+  --block-2: #4e342e;
+  --block-3: #FFCDC9;
+  --block-4: #FDACAC;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Outfit", sans-serif;
+  background-color: var(--body-bg);
+  overflow-x: hidden;
+  overflow-y: auto;
+  transition: background-color 0.3s ease;
+}
+
+.scroll-spacer {
+  height: 600vh;
+  /* Overridden by product-candles.js from product count */
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 1px;
+  z-index: -1;
+  pointer-events: none;
+}
+
+.scene-wrapper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+.scene {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Background Blocks */
+.bg-blocks {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  display: flex;
+}
+
+.block {
+  width: 40%;
+  height: 100%;
+}
+
+.block-1 {
+  display: flex;
+  align-items: flex-end;
+  background-color: var(--block-1);
+  position: relative;
+}
+
+.block-2 {
+  width: 60%;
+  background-color: var(--block-2);
+}
+
+.block-3 {
+  height: 30%;
+  width: 50%;
+  background-color: var(--block-3);
+  position: relative;
+  overflow: hidden;
+}
+
+.block-4 {
+  height: 30%;
+  width: 50%;
+  background-color: var(--block-4);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Background Overlays for Sliding Animation */
+.bg-overlay-1 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 0%;
+  /* Slide from top means height grows */
+  z-index: 0;
+}
+
+/* Ensure Block 1 children (3 & 4) are above its overlays */
+.block-3,
+.block-4 {
+  z-index: 1;
+}
+
+.bg-overlay-3 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0%;
+  /* Slide from left */
+  height: 100%;
+  z-index: 1;
+}
+
+.bg-overlay-4 {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 0%;
+  height: 100%;
+  z-index: 1;
+}
+
+.p2-bg-4 {
+  height: 0%;
+  width: 100%;
+  top: auto;
+  bottom: 0;
+}
+
+/* Product 2 Colors (Sunburst) */
+.p2-bg-1 {
+  background-color: #ffb74d;
+}
+
+.p2-bg-3 {
+  background-color: #e65100;
+}
+
+.p2-bg-4 {
+  background-color: #fff8e1;
+}
+
+/* Product 3 Colors (Strawberry) */
+.p3-bg-1 {
+  background-color: #ec407a;
+}
+
+.p3-bg-3 {
+  background-color: #f48fb1;
+}
+
+.p3-bg-4 {
+  background-color: #fce4ec;
+}
+
+/* Product 4 Colors (Mystic Ocean) */
+.p4-bg-1 {
+  background-color: #00897b;
+}
+
+/* Teal */
+.p4-bg-3 {
+  background-color: #004d40;
+}
+
+/* Dark Teal */
+.p4-bg-4 {
+  background-color: #e0f2f1;
+}
+
+/* Light Teal */
+
+/* Product 5 Colors (Merry Christmas) */
+.p5-bg-1 {
+  background-color: #c62828;
+}
+
+/* Red */
+.p5-bg-3 {
+  background-color: #2e7d32;
+}
+
+/* Green */
+.p5-bg-4 {
+  background-color: #fffde7;
+}
+
+/* Goldish */
+
+/* Product 6 Colors (Cooki) */
+.p6-bg-1 {
+  background-color: #5d4037;
+}
+
+/* Brown */
+.p6-bg-3 {
+  background-color: #3e2723;
+}
+
+/* Dark Brown */
+.p6-bg-4 {
+  background-color: #d7ccc8;
+}
+
+/* Light Brown */
+
+/* Product 7 Colors (Moon Bloom) */
+.p7-bg-1 {
+  background-color: #311b92;
+}
+
+/* Deep Purple */
+.p7-bg-3 {
+  background-color: #4527a0;
+}
+
+/* Purple */
+.p7-bg-4 {
+  background-color: #ede7f6;
+}
+
+/* Pale Purple */
+
+/* Product 8 Colors (Swan) */
+.p8-bg-1 {
+  background-color: #e0e0e0;
+}
+
+/* Silver */
+.p8-bg-3 {
+  background-color: #e284ff;
+}
+
+/* Light Gray */
+.p8-bg-4 {
+  background-color: #ffffff;
+}
+
+/* Pure White */
+
+/* Product 9 Colors (Sunflower) */
+.p9-bg-1 {
+  background-color: #fbc02d;
+}
+
+/* Sunflower Yellow */
+.p9-bg-3 {
+  background-color: #f9a825;
+}
+
+/* Gold */
+.p9-bg-4 {
+  background-color: #fff9c4;
+}
+
+/* Pale Yellow */
+
+/* Product 10 Colors (Diwali Ladoo) */
+.p10-bg-1 {
+  background-color: #ef6c00;
+}
+
+/* Burnt Orange */
+.p10-bg-3 {
+  background-color: #ff9800;
+}
+
+/* Bright Orange */
+.p10-bg-4 {
+  background-color: #fff3e0;
+}
+
+/* Creamy Orange */
+
+/* Product 11 Colors (Fairytale Waltz) */
+.p11-bg-1 {
+  background-color: #7b1fa2;
+}
+
+/* Dreamy Purple */
+.p11-bg-3 {
+  background-color: #c2185b;
+}
+
+/* Deep Pink */
+.p11-bg-4 {
+  background-color: #f3e5f5;
+}
+
+/* Lavender White */
+
+/* Product 12 Colors (Painted Taper) */
+.p12-bg-1 {
+  background-color: #0288d1;
+}
+
+/* Blue */
+.p12-bg-3 {
+  background-color: #388e3c;
+}
+
+/* Green */
+.p12-bg-4 {
+  background-color: #f1f8e9;
+}
+
+/* Light Mint */
+
+/* Product 13 Colors (Sea Shell) */
+.p13-bg-1 {
+  background-color: #0097a7;
+}
+
+/* Cyan Sea */
+.p13-bg-3 {
+  background-color: #00acc1;
+}
+
+/* Bright Cyan */
+.p13-bg-4 {
+  background-color: #e0f7fa;
+}
+
+/* Pale Cyan */
+
+/* Product 14 Colors (Tulip Boquet) */
+.p14-bg-1 {
+  background-color: #d81b60;
+}
+
+/* Magenta */
+.p14-bg-3 {
+  background-color: #8e24aa;
+}
+
+/* Purple Blossom */
+.p14-bg-4 {
+  background-color: #fce4ec;
+}
+
+/* Soft Rose */
+
+/* Content */
+.content-wrapper {
+  position: relative;
+  z-index: 10;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Navbar */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 30px 40px;
+  color: #fff;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 20;
+}
+
+.nav-links {
+  display: flex;
+  gap: 1px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  padding: 0;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.nav-links a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 0.83vw;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  padding: 10px 20px;
+  border-right: 1px solid rgba(255, 255, 255, 0.3);
+  background: rgba(255, 255, 255, 0.05);
+  transition: background 0.3s;
+}
+
+.nav-links a:last-child {
+  border-right: none;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.brand {
+  font-family: "Outfit", sans-serif;
+  font-size: 1.6vw;
+  font-weight: 300;
+  position: absolute;
+  left: 40%;
+  color: #fff;
+  mix-blend-mode: difference;
+}
+
+.cart-icon {
+  color: #333;
+}
+
+/* Main Layout */
+.main-layout {
+  display: flex;
+  flex: 1;
+  height: 100%;
+}
+
+.product-section {
+  border-right: 1px solid var(--text-dark);
+  width: 40%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.products-stack {
+  z-index: 10;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.product-item {
+  position: absolute;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.product-image {
+  width: 80%;
+  height: auto;
+  display: block;
+  filter: drop-shadow(0 20px 30px rgba(0, 0, 0, 0.3));
+}
+
+#sunburst-img {
+  width: 95%;
+}
+
+.details-section {
+  width: 60%;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: relative;
+  color: var(--accent-blue);
+}
+
+/* Particles */
+.particles-container {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 100%;
+  height: 50%;
+  pointer-events: none;
+  z-index: 5;
+}
+
+.leaf {
+  position: absolute;
+  width: 40px;
+  height: auto;
+  opacity: 0.8;
+  filter: drop-shadow(0 5px 5px rgba(0, 0, 0, 0.1));
+}
+
+.leaf-1 {
+  top: 10%;
+  right: 20%;
+  transform: rotate(45deg);
+  width: 50px;
+}
+
+.leaf-2 {
+  top: 30%;
+  right: 10%;
+  transform: rotate(-30deg);
+  width: 30px;
+}
+
+.leaf-3 {
+  top: 15%;
+  right: 40%;
+  transform: rotate(90deg);
+  width: 25px;
+}
+
+/* Info Stack */
+.info-stack {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 90%;
+  height: 300px;
+
+}
+
+.product-info {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  top: 30%;
+  left: 50;
+  width: 90%;
+  /* We don't hide the container anymore, we hide content via masks */
+}
+
+/* Text Masking */
+.text-mask {
+  overflow: hidden;
+  display: block;
+  position: relative;
+}
+
+.text-mask-flavour {
+  overflow: hidden;
+  display: block;
+  position: relative;
+  left: 10vw;
+}
+
+#Flavour {
+  border: 1px solid var(--accent-blue);
+  border-radius: 1rem;
+  border-bottom-left-radius: 0px;
+  border-bottom-right-radius: 0px;
+  border-bottom: none;
+  position: relative;
+  border-radius: 1rem;
+  border-bottom-left-radius: 0px;
+  border-bottom-right-radius: 0px;
+  width: fit-content;
+}
+
+.anim-text {
+  display: block;
+  transform: translateY(0);
+  will-change: transform;
+}
+
+.tag {
+  padding: 5px 10px;
+  font-size: 0.78vw;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  display: inline-block;
+
+  position: relative;
+}
+
+.title {
+
+  width: fit-content;
+  font-family: "Outfit", sans-serif;
+  font-size: 5vw;
+  line-height: 0.9;
+  font-weight: 800;
+  text-transform: uppercase;
+  color: var(--accent-blue);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1rem;
+}
+
+#title-2 {
+  border: 1px solid var(--accent-blue);
+  border-radius: 1rem;
+  border-bottom-left-radius: 0px;
+  border-bottom-right-radius: 0px;
+  border-bottom: none;
+}
+
+.description-box {
+  padding: 20px;
+  display: flex;
+  gap: 20px;
+}
+
+.description-box-1 {
+  border: 1px solid var(--accent-blue);
+  border-radius: 1rem;
+  padding: 20px;
+  display: flex;
+  gap: 20px;
+}
+
+.desc-text {
+  font-size: 1.4vw;
+  line-height: 1.5;
+  font-weight: 400;
+
+  padding-right: 20px;
+}
+
+.description-box-1.coffee-detail {
+  flex-direction: column;
+  align-items: stretch;
+  max-height: 52vh;
+  overflow-y: auto;
+}
+
+.desc-note {
+  font-size: 1.15vw;
+  line-height: 1.5;
+  font-weight: 500;
+  margin-top: 0.75rem;
+  padding-right: 20px;
+}
+
+.coffee-specs {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.75rem 1.25rem;
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--accent-blue);
+}
+
+.coffee-specs div {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.coffee-specs dt {
+  font-weight: 700;
+  font-size: 1vw;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.coffee-specs dd {
+  font-size: 1.05vw;
+  line-height: 1.35;
+  margin: 0;
+}
+
+.desc-custom {
+  font-size: 1.05vw;
+  line-height: 1.45;
+  margin-top: 1rem;
+}
+
+.desc-custom a {
+  color: inherit;
+  font-weight: 700;
+  text-decoration: underline;
+}
+
+.specs {
+  display: flex;
+  gap: 15px;
+}
+
+.spec-item {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.label {
+  font-weight: 700;
+  font-size: 1.2vw;
+  text-transform: uppercase;
+}
+
+.value {
+  font-size: 1.2vw;
+  line-height: 1.2;
+}
+
+.weight-badge {
+  border: 1px solid var(--accent-blue);
+  padding: 5px;
+  font-size: 1.2vw;
+  font-weight: 700;
+  height: fit-content;
+  align-self: flex-end;
+}
+
+.price-display {
+  font-family: "Outfit", sans-serif;
+  font-size: 3vw;
+  font-weight: 300;
+
+}
+
+/* Bottom Bar */
+.bottom-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 1px solid var(--text-dark);
+  padding: 2rem;
+  width: 100%;
+}
+
+.cart-controls {
+  display: flex;
+  gap: 1rem;
+}
+
+.qty-selector {
+  width: 5vw;
+  height: 5vw;
+  border-radius: 1rem;
+  border: 1px solid var(--accent-blue);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: 600;
+}
+
+.qty-selector {
+  font-size: 1.5vw;
+}
+
+#price1 {
+  padding: 0.5vw 1vw;
+  border-radius: 1rem;
+  border: var(--accent-blue) 1px solid;
+}
+
+
+.add-btn {
+  border-radius: 1rem;
+  font-size: 1.5vw;
+  background: var(--bg-primary);
+  color: var(--text-dark);
+  border: 1px solid var(--text-dark);
+  padding: 0 2vw;
+  font-family: "Outfit", sans-serif;
+  font-weight: 700;
+  letter-spacing: 1px;
+  cursor: pointer;
+  transition: transform 0.2s, background-color 0.3s;
+}
+
+.add-btn:hover {
+  transform: scale(1.05);
+  background: var(--text-dark);
+  color: var(--bg-primary);
+  border: 1px solid var(--bg-primary);
+}
+
+/* Price Animation Updates */
+.price-placeholder {
+  display: grid;
+  align-items: center;
+  position: relative;
+
+}
+
+.price-item {
+  display: flex;
+  align-self: center;
+  justify-content: center;
+  grid-area: 1 / 1;
+  width: 10vw;
+  margin-right: 1rem;
+}
+
+
+/* Portrait Mode Stacking */
+@media (orientation: portrait) {
+  .bg-blocks {
+    flex-direction: column;
+  }
+
+  .block-1 {
+    width: 100%;
+    height: 50%;
+  }
+
+  .block-2 {
+    width: 100%;
+    height: 50%;
+  }
+
+  .main-layout {
+    flex-direction: column;
+  }
+
+  .product-section {
+    width: 100%;
+    height: 50%;
+    border-right: none;
+    border-bottom: 1px solid var(--text-dark);
+  }
+
+  .details-section {
+    width: 100%;
+    height: 50%;
+  }
+
+  .product-image {
+    width: auto;
+    height: 80%;
+  }
+
+  .info-stack {
+    position: absolute;
+    top: 0%;
+
+    height: auto;
+    min-height: 200px;
+    margin-bottom: 0vh;
+  }
+
+  .title {
+    font-size: 10vw;
+    /* Scale title for portrait */
+  }
+
+  .tag {
+    font-size: 3vw;
+  }
+
+  .desc-text {
+    font-size: 4vw;
+  }
+
+  .label,
+  .value,
+  .weight-badge {
+    font-size: 3vw;
+  }
+
+  .price-display {
+    font-size: 5vw;
+    padding: 1.5vw 2vw;
+  }
+
+  .bottom-bar {
+    padding: 1rem;
+  }
+
+  .qty-selector {
+    width: 10vw;
+    height: 10vw;
+  }
+
+  .add-btn {
+    font-size: 4vw;
+    padding: 0 4vw;
+  }
+
+  .description-box,
+  .description-box-1 {
+    display: none;
+  }
+
+  .coffee-specs dt,
+  .desc-custom,
+  .desc-note {
+    font-size: 3vw;
+  }
+
+  .coffee-specs dd {
+    font-size: 3.2vw;
+  }
+
+  .product-item {
+    width: 60vw;
+  }
+
+
+  #title-2 {
+    border-bottom: 1px solid var(--accent-blue);
+    ;
+  }
+
+  .products-stack {
+    position: relative;
+
+    right: 4vw;
+  }
+
+  .item-2 {
+    width: 75vw;
+  }
+
+  .product-info {
+    top: 10vh;
+  }
+
+  .price-item {
+    width: 20vw;
+  }
+
+  .qty-selector {
+    font-size: clamp(1.5vw, 4vw, 4vw);
+
+  }
+}

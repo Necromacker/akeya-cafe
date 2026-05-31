@@ -1,0 +1,355 @@
+/* CSS for Collection Pages (Candle, Diffuser, Jar) */
+
+/* ... (Keep existing styles for body, navbar, header, grid layout) ... */
+
+/* Dark Mode Variables - Ideally should be in :root but leveraging existing theme classes if possible. 
+   Assuming .dark-theme class on body. 
+*/
+
+body.dark-theme .product-card {
+    background-color: #1a1a1a;
+    border-color: #333;
+}
+
+body.dark-theme .card-image {
+    background-color: #222;
+}
+
+body.dark-theme .badge {
+    background-color: #fff;
+    color: #000;
+}
+
+body.dark-theme .card-details h3 {
+    color: #fff;
+}
+
+body.dark-theme .card-details .sub-text {
+    color: #aaa;
+}
+
+body.dark-theme .price {
+    color: #fff;
+}
+
+body.dark-theme .btn-view {
+    border-color: #fff;
+    color: #fff;
+}
+
+body.dark-theme .btn-view:hover {
+    background-color: #333;
+}
+
+body.dark-theme .btn-buy {
+    background-color: #fff;
+    color: #000;
+}
+
+body.dark-theme .btn-buy:hover {
+    background-color: #ddd;
+    border-color: #ddd;
+}
+
+body.dark-theme .promo-card {
+    background-color: #2a2a2a;
+}
+
+body.dark-theme .promo-content h3 {
+    color: #fff;
+}
+
+body.dark-theme .promo-content p {
+    color: #ccc;
+}
+
+body.dark-theme .promo-content .shop-btn {
+    background-color: #fff;
+    color: #000;
+}
+
+/* Base Styles */
+
+.product-card {
+    background-color: #fff;
+    border-radius: 8px;
+    /* Slightly softer corners */
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+    /* Indicate clickability */
+    display: flex;
+    flex-direction: column;
+    /* Remove text-align: center if you want left align, but image center is good */
+    position: relative;
+    border: 1px solid #f0f0f0;
+}
+
+.product-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08);
+}
+
+.card-image {
+    overflow: hidden;
+    position: relative;
+    padding: 20px;
+    background-color: #f9f9f9;
+    /* Light gray background for image area */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 250px;
+    /* Fixed height for consistency */
+}
+
+.card-image img {
+    max-width: 115%;
+
+    object-fit: contain;
+    transition: transform 0.5s ease;
+}
+
+.product-card:hover .card-image img {
+    transform: scale(1.05);
+}
+
+.badge {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    background-color: #222;
+    color: #fff;
+    padding: 4px 10px;
+    font-size: 0.7rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    z-index: 2;
+}
+
+.card-details {
+    padding: 20px;
+    text-align: left;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.card-details h3 {
+    font-family: 'Ovo', serif;
+    font-size: 1.1rem;
+    margin-bottom: 5px;
+    color: #333;
+    letter-spacing: 0.5px;
+}
+
+.card-details .sub-text {
+    font-size: 0.85rem;
+    color: #777;
+    margin-bottom: 15px;
+    font-family: 'Montserrat', sans-serif;
+}
+
+/* Replaced Colors with Actions */
+.card-actions {
+    display: flex;
+    gap: 10px;
+    margin-top: auto;
+    /* Push to bottom if flex column */
+    margin-bottom: 15px;
+}
+
+.btn-view,
+.btn-buy {
+    flex: 1;
+    padding: 8px 0;
+    border: 1px solid #222;
+    background: transparent;
+    color: #222;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.8rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-align: center;
+}
+
+.btn-view:hover {
+    background-color: #f0f0f0;
+}
+
+.btn-buy {
+    background-color: #222;
+    color: #fff;
+}
+
+.btn-buy:hover {
+    background-color: #444;
+    border-color: #444;
+}
+
+
+/* Price Row */
+.price-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.price {
+    font-weight: 600;
+    color: #222;
+    font-size: 1rem;
+}
+
+.old-price {
+    text-decoration: line-through;
+    color: #999;
+    font-size: 0.9rem;
+}
+
+
+/* Promo Card */
+.promo-card {
+    background-color: #f4e4e4;
+    /* Light rose/brown tint */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    border: none;
+}
+
+.promo-content {
+    padding: 20px;
+}
+
+.promo-content h3 {
+    font-family: 'Ovo', serif;
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+    color: #222;
+}
+
+.promo-content p {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1rem;
+    margin-bottom: 5px;
+    color: #444;
+}
+
+.promo-content .shop-btn {
+    margin-top: 20px;
+    padding: 10px 25px;
+    background-color: #222;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    font-family: 'Montserrat', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 0.9rem;
+}
+
+/* Responsive Grid */
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    /* Responsive columns */
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 100px 20px;
+}
+
+/* Filter Bar styles (from previous, ensured here) */
+.collection-header {
+    margin-top: 80px;
+    /* Space for fixed navbar */
+    padding: 20px 0;
+    border-bottom: 1px solid #eaeaea;
+}
+
+.filter-bar {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 20px;
+    gap: 15px;
+}
+
+.filter-icon {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #222;
+    cursor: pointer;
+}
+
+.filter-chips {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.chip {
+    background: none;
+    border: 1px solid #ddd;
+    padding: 6px 16px;
+    border-radius: 20px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.75rem;
+    color: #555;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.chip.active,
+.chip:hover {
+    background-color: #222;
+    color: #fff;
+    border-color: #222;
+}
+
+.sort-dropdown {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.9rem;
+    color: #222;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+/* Dark mode specific for Filter chips */
+body.dark-theme .sort-dropdown {
+    color: #fff;
+}
+
+body.dark-theme .filter-icon {
+    color: #fff;
+}
+
+body.dark-theme .chip {
+    border-color: #444;
+    color: #ccc;
+}
+
+body.dark-theme .chip.active,
+body.dark-theme .chip:hover {
+    background-color: #fff;
+    color: #000;
+}
+
+body.dark-theme .collection-header {
+    border-bottom-color: #333;
+}

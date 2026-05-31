@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Gift Boxes — Aeka's Coffee</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Ovo&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/styles.css" />
+    <link rel="stylesheet" href="css/candle-collection.css" />
+    <link rel="stylesheet" href="css/cart.css" />
+  </head>
+  <body data-collection="hamper-grid|hamper-|hampers.html">
+    <div class="Nav-container">
+      <div class="Navbar">
+        <div class="Branding">
+          <img src="images/logo.avif" alt="Aeka's Coffee logo" class="Brand-logo" />
+          <h1>Aeka's Coffee</h1>
+        </div>
+        <div class="Nav-links">
+        <a href="index.html" id="buttons"><span class="text">Home</span><span>Home</span></a>
+        <a href="shop.html" id="buttons"><span class="text">Menu</span><span>Menu</span></a>
+        <a href="about.html" id="buttons"><span class="text">About</span><span>About</span></a>
+        <a href="blog.html" id="buttons"><span class="text">Blog</span><span>Blog</span></a>
+      </div>
+
+        <div class="Nav-buttons">
+          <div class="nav-actions desktop-nav">
+            <button
+               class="nav-btn theme-toggle cursor-target light-mode"
+               id="theme-toggle"
+               aria-label="Toggle theme"
+             >
+               <svg
+                 xmlns="http://www.w3.org/2000/svg"
+                 width="24"
+                 height="24"
+                 viewBox="0 0 24 24"
+                 fill="none"
+                 stroke="currentColor"
+                 stroke-width="2"
+                 stroke-linecap="round"
+                 stroke-linejoin="round"
+                 class="lucide lucide-moon theme-icon moon-icon"
+               >
+                 <path
+                   d="M20.985 12.486a9 9 0 1 1-9.473-9.472c.405-.022.617.46.402.803a6 6 0 0 0 8.268 8.268c.344-.215.825-.004.803.401"
+                 ></path>
+               </svg>
+               <svg
+                 xmlns="http://www.w3.org/2000/svg"
+                 width="24"
+                 height="24"
+                 viewBox="0 0 24 24"
+                 fill="none"
+                 stroke="currentColor"
+                 stroke-width="2"
+                 stroke-linecap="round"
+                 stroke-linejoin="round"
+                 class="lucide lucide-sun theme-icon sun-icon"
+               >
+                 <circle cx="12" cy="12" r="4"></circle>
+                 <path d="M12 2v2"></path>
+                 <path d="M12 20v2"></path>
+                 <path d="m4.93 4.93 1.41 1.41"></path>
+                 <path d="m17.66 17.66 1.41 1.41"></path>
+                 <path d="M2 12h2"></path>
+                 <path d="M20 12h2"></path>
+                 <path d="m6.34 17.66-1.41 1.41"></path>
+                 <path d="m19.07 4.93-1.41 1.41"></path>
+               </svg>
+             </button>
+             <a href="profile.html" class="nav-btn cursor-target" aria-label="User account">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                data-lucide="user"
+                class="lucide lucide-user"
+              >
+                <path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"></path>
+                <circle cx="12" cy="7" r="4"></circle>
+              </svg>
+            </a>
+             <button class="nav-btn cursor-target" aria-label="Search">
+               <svg
+                 xmlns="http://www.w3.org/2000/svg"
+                 width="24"
+                 height="24"
+                 viewBox="0 0 24 24"
+                 fill="none"
+                 stroke="currentColor"
+                 stroke-width="2"
+                 stroke-linecap="round"
+                 stroke-linejoin="round"
+                 data-lucide="search"
+                 class="lucide lucide-search"
+               >
+                 <path d="m21 21-4.34-4.34"></path>
+                 <circle cx="11" cy="11" r="8"></circle>
+               </svg>
+             </button>
+             <button class="nav-btn cursor-target" aria-label="Shopping cart">
+               <svg
+                 xmlns="http://www.w3.org/2000/svg"
+                 width="24"
+                 height="24"
+                 viewBox="0 0 24 24"
+                 fill="none"
+                 stroke="currentColor"
+                 stroke-width="2"
+                 stroke-linecap="round"
+                 stroke-linejoin="round"
+                 data-lucide="shopping-bag"
+                 class="lucide lucide-shopping-bag"
+               >
+                 <path d="M16 10a4 4 0 0 1-8 0"></path>
+                 <path d="M3.103 6.034h17.794"></path>
+                 <path
+                   d="M3.4 5.467a2 2 0 0 0-.4 1.2V20a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6.667a2 2 0 0 0-.4-1.2l-2-2.667A2 2 0 0 0 17 2H7a2 2 0 0 0-1.6.8z"
+                 ></path>
+               </svg>
+             </button>
+           </div>
+         </div>
+       </div>
+       <div class="MobileMenu">
+         Menu
+         <input id="checkbox2" type="checkbox" />
+         <label class="toggle toggle2" for="checkbox2">
+           <div id="bar4" class="bars"></div>
+           <div id="bar5" class="bars"></div>
+           <div id="bar6" class="bars"></div>
+         </label>
+       </div>
+    </div>
+
+
+
+    <!-- Product Grid -->
+    <div class="product-grid-container">
+        <div class="product-grid" id="hamper-grid">
+            <!-- Products will be loaded from products.json -->
+        </div>
+    </div>
+
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"
+      integrity="sha512-16esztaSRplJROstbIIdwX3N97V1+pZvV33ABoG1H2OyTttBxEGkTsoIVsiP1iaTtM8b3+hu2kB6pQ4Clr5yug=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"
+      integrity="sha512-Ic9xkERjyZ1xgJ5svx3y0u3xrvfT/uPkV99LBwe68xjy/mGtO+4eURHZBW2xW4SZbFrF1Tf090XqB+EVgXnVjw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <script type="module" src="js/script.js"></script>
+    <script type="module" src="js/cart.js"></script>
+    <script src="js/collection-grid.js"></script>
+  </body>
+</html>
