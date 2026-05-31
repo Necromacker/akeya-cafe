@@ -501,15 +501,15 @@ button.mobile-icon-btn {
 .Candle-Category,
 .Diffuser-Category,
 .Hamper-Category {
-  background-repeat: no-repeat;
-  background-position: center center;
-  background-size: cover;
+  height: 80vh;
+  width: 95vw;
   border-radius: 1rem;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
 }
 
 .Candle-Category {
-  height: 80vh;
-  width: 95vw;
   position: relative;
   top: 15vh;
   background-image: url(../images/Products/Coffee/hero.png);
@@ -518,17 +518,13 @@ button.mobile-icon-btn {
 .Diffuser-Category {
   position: relative;
   top: -65vh;
-  width: 95vw;
-  height: 80vh;
-  background-image: url(../images/Products/Pastries/hero.png);
+  background-image: url(https://images.unsplash.com/photo-1509440159596-0249088772ff?w=1600&h=900&fit=crop);
 }
 
 .Hamper-Category {
   position: relative;
   top: -145vh;
-  height: 80vh;
-  width: 95vw;
-  background-image: url(../images/Products/Gift-Boxes/hero.png);
+  background-image: url(https://images.unsplash.com/photo-1549465220-1a0b923d2faa?w=1600&h=900&fit=crop);
 }
 
 .Square-Container {
@@ -1129,15 +1125,6 @@ body.dark-theme .reviewer-location {
 
 }
 
-/* Aspect ratio based background size */
-@media screen and (min-aspect-ratio: 126/100) {
-
-  .Candle-Category,
-  .Diffuser-Category,
-  .Hamper-Category {
-    background-size: 95vw auto;
-  }
-}
 
 @media (max-width: 1000px) {
   .Nav-links {
@@ -1289,11 +1276,19 @@ body.dark-theme .reviewer-location {
   }
 
   .Diffuser-Category {
-    background-image: url(../images/Products/Pastries/hero.png);
+    background-image: url(https://images.unsplash.com/photo-1509440159596-0249088772ff?w=1600&h=900&fit=crop);
   }
 
   .Hamper-Category {
-    background-image: url(../images/Products/Gift-Boxes/hero.png);
+    background-image: url(https://images.unsplash.com/photo-1549465220-1a0b923d2faa?w=1600&h=900&fit=crop);
+  }
+
+  .Candle-Category,
+  .Diffuser-Category,
+  .Hamper-Category {
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
   }
 }
 

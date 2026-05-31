@@ -72,6 +72,11 @@ body.static-layout .static-label.bottom {
 #hero-candle {
   position: absolute;
   width: 30%;
+  max-width: 420px;
+  max-height: 70vh;
+  height: auto;
+  object-fit: contain;
+  object-position: center;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
@@ -80,7 +85,8 @@ body.static-layout .static-label.bottom {
 }
 
 body.static-layout #hero-candle {
-  width: 85%;
+  width: min(85%, 420px);
+  max-height: 55vh;
   top: 50%;
   left: 50%;
 
@@ -235,12 +241,35 @@ body.dark-theme .card-shop {
   display: flex;
   align-items: center;
   justify-content: center;
+  flex: 1 1 auto;
+  width: 100%;
+  min-height: 0;
+  max-height: 68%;
+  padding: 1.25rem 1.5rem 0.5rem;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+.card-shop .card-img img {
+  width: 100%;
+  max-width: 200px;
+  height: auto;
+  max-height: min(28vh, 220px);
+  object-fit: contain;
+  object-position: center;
+  transition: all cubic-bezier(0.19, 1, 0.22, 1) 0.5s;
+}
+
+.card-shop .card-img img.card-hero-cover {
+  max-width: 100%;
+  width: 100%;
+  height: 100%;
+  max-height: min(32vh, 240px);
+  object-fit: cover;
+  border-radius: 12px;
 }
 
 #hamper {
-  width: 70%;
-  max-height: 100%;
-  object-fit: contain;
   transition: all cubic-bezier(0.19, 1, 0.22, 1) 0.5s;
 }
 
@@ -354,9 +383,18 @@ body.dark-theme .card-shop {
   }
 
 
-  #diffuser,
-  #hamper {
-    width: 90%;
+  .card-shop .card-img img {
+    max-width: 100%;
+    max-height: 100%;
+    width: auto;
+    height: auto;
+  }
+
+  .card-shop .card-img img.card-hero-cover {
+    width: 100%;
+    height: 100%;
+    max-height: none;
+    object-fit: cover;
   }
 
 }
@@ -371,9 +409,6 @@ body.dark-theme .card-shop {
 #diffuser,
 #hamper {
   display: none;
-  width: 90%;
-  max-height: 100%;
-  object-fit: contain;
 }
 
 body.static-layout #hero-candle-static,
